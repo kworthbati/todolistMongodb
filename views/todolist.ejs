@@ -1,0 +1,36 @@
+<%- include("header") -%>
+
+  <div class="box hidden" id="heading">
+    <h1> <%= listTitle %> </h1>
+  </div>
+
+  <div class="box hidden" id="todo">
+
+
+  <%  newListItem.forEach(function (item) { %>
+      <div class="item">
+        <input type="checkbox" id="remove">
+        <p> <%= item.name %> </p>
+      </div>
+  <%  }) %>
+
+
+    <form class="item" action="/" method="post">
+      <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+      <button type="submit" name="list" value=<%= listTitle %>>+</button>
+    </form>
+  </div>
+
+<script type="text/javascript">
+//animation
+$(document).ready(function () {
+    $('#heading').fadeIn(1000).removeClass('hidden');
+});
+
+$(document).ready(function () {
+    $('#todo').fadeIn(1000).removeClass('hidden');
+});
+
+</script>
+
+<%- include("footer") -%>
